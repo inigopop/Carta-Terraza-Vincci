@@ -168,7 +168,7 @@ export const COCKTAILS: MenuItem[] = [
     historyEn: "A refreshing alternative to the Margarita that combines the strength of tequila with citric freshness.",
     tags: ["Con Alcohol", "Cítrico", "Tequila"],
     tagsEn: ["With Alcohol", "Citric", "Tequila"],
-    image: "https://images.unsplash.com/photo-1510626176961-4b57d4fbadf3?auto=format&fit=crop&w=800&q=80",
+    image: "https://res.cloudinary.com/daw44qmzv/image/upload/v1772205827/foto-paloma-comedy-wildlife_qwnbfz.png",
     category: "CON ALCOHOL"
   },
   {

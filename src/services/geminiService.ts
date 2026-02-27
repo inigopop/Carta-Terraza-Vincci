@@ -1,7 +1,18 @@
 import { GoogleGenAI } from "@google/genai";
 import { MenuItem, PAIRING_SCHEMA, COCKTAILS, SNACKS } from "../constants";
 
-const ai = new GoogleGenAI({ apiKey: process.env.GEMINI_API_KEY || "" });
+// Use a safe way to access the API key that works in both AI Studio and production builds
+const getApiKey = () => {
+  try {
+    // process.env.GEMINI_API_KEY is defined by Vite's 'define' config
+    // We use a check to avoid ReferenceErrors in environments where process is not defined
+    return (typeof process !== 'undefined' && process.env) ? process.env.GEMINI_API_KEY : '';
+  } catch (e) {
+    return "";
+  }
+};
+
+const ai = new GoogleGenAI({ apiKey: getApiKey() || "" });
 
 export async function getPairingRecommendation(item: MenuItem, isCocktail: boolean, lang: 'es' | 'en' = 'es') {
   const otherList = isCocktail ? SNACKS : COCKTAILS;
